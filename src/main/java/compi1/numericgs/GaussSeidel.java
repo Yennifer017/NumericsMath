@@ -19,6 +19,7 @@ public class GaussSeidel {
     }
 
     public double[] solve(double[][] matrix, double[] solVector, float lambda, double errorTol, int imax, double[] actualSolutions) throws MathException {
+        //validaciones para que el metodo funcione
         if (matrix.length != matrix[0].length) {
             throw new MathException("La matriz debe ser cuadrada");
         } else if (actualSolutions.length != matrix.length){
@@ -27,7 +28,7 @@ public class GaussSeidel {
             throw new MathException("La matriz debe ser diagonalmente dominante.");
         } else if (matrixUtil.determinante(matrix) == 0) {
             throw new MathException("El determinante de la matriz debe ser distinto de 0");
-        } else if (lambda > 2 || lambda < 0){
+        } else if (lambda >= 2 || lambda <= 0){
             throw new MathException("El valor de lambda debe estar entre 0 y 2");
         }
 
